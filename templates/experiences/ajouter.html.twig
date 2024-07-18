@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Hello ExperiencesController!{% endblock %}
+
+{% block body %}
+<div class="container">
+
+{{ form_start(form) }}
+
+{{ form_row(form.poste, {
+    'attr': {'class': 'form form-control'},
+    'label': 'Titre de la mission ou poste occupé'
+}) }}
+
+{{ form_row(form.entreprise, {
+    'attr': {'class': 'form form-control'},
+    'label': 'Entreprise'
+}) }}
+{{ form_row(form.description, {
+    'attr': {'class': 'form form-control'},
+    'label': 'Détail de la mission'
+}) }}
+
+{{ form_row(form.service, {
+    'attr': {'class': 'form form-control'},
+    'label': 'Service'
+}) }}
+
+{{ form_row(form.dateStarted, {
+    'attr': {'class': 'form form-control text-center', 'placeholder':'descrioption (facultative)'},
+    'label': 'Date entrée', 
+	
+}) }}
+
+{{ form_row(form.fin, {
+    'attr': {'class': 'form form-control'},
+    'label': 'Date de fin'
+}) }}
+
+<button type="submit" class="btn mt-2 bg-success text-white btn-block">Ajouter</button>
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+{{ form_end(form) }}
+
+</div>
+{% endblock %}

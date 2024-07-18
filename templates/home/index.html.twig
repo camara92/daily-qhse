@@ -206,7 +206,7 @@
 
 						<div class="progress">
 							<span class="skill">
-								<span>HTML</span>
+								<span>VIC ou Visite d'Inspection Commune </span>
 								<i class="val">100%</i>
 							</span>
 							<div class="progress-bar-wrap">
@@ -217,7 +217,7 @@
 
 						<div class="progress">
 							<span class="skill">
-								<span>CSS</span>
+								<span>Animation sécurité et les causeries </span>
 								<i class="val">90%</i>
 							</span>
 							<div class="progress-bar-wrap">
@@ -228,7 +228,7 @@
 
 						<div class="progress">
 							<span class="skill">
-								<span>JavaScript</span>
+								<span> Revue comptes rendus préventions et suivi consignes </span>
 								<i class="val">75%</i>
 							</span>
 							<div class="progress-bar-wrap">
@@ -243,7 +243,7 @@
 
 						<div class="progress">
 							<span class="skill">
-								<span>PHP</span>
+								<span>Formation aux outils et vérifications des habilitations </span>
 								<i class="val">80%</i>
 							</span>
 							<div class="progress-bar-wrap">
@@ -254,8 +254,8 @@
 
 						<div class="progress">
 							<span class="skill">
-								<span>WordPress/CMS</span>
-								<i class="val">90%</i>
+								<span> Culture HSE des intervenants </span>
+								<i class="val">60%</i>
 							</span>
 							<div class="progress-bar-wrap">
 								<div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
@@ -265,7 +265,7 @@
 
 						<div class="progress">
 							<span class="skill">
-								<span>Photoshop</span>
+								<span>Statistiques des enquêtes du personnel en HSE </span>
 								<i class="val">55%</i>
 							</span>
 							<div class="progress-bar-wrap">
@@ -294,7 +294,7 @@
 						<i class="bi bi-emoji-smile"></i>
 						<div class="stats-item">
 							<span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-							<p>Happy Clients</p>
+							<p>Clients satisfaits </p>
 						</div>
 					</div>
 					<!-- End Stats Item -->
@@ -303,7 +303,7 @@
 						<i class="bi bi-journal-richtext"></i>
 						<div class="stats-item">
 							<span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-							<p>Projects</p>
+							<p>Projets réalisés </p>
 						</div>
 					</div>
 					<!-- End Stats Item -->
@@ -312,7 +312,7 @@
 						<i class="bi bi-headset"></i>
 						<div class="stats-item">
 							<span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-							<p>Hours Of Support</p>
+							<p>Temps dédiés </p>
 						</div>
 					</div>
 					<!-- End Stats Item -->
@@ -321,7 +321,7 @@
 						<i class="bi bi-people"></i>
 						<div class="stats-item">
 							<span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-							<p>Hard Workers</p>
+							<p>Energie </p>
 						</div>
 					</div>
 					<!-- End Stats Item -->
@@ -372,8 +372,8 @@
 						              }
 						            }
 					</script>
-					<div class="swiper-wrapper align-items-center">
-						<div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
+					{# <div class="swiper-wrapper align-items-center">
+						<div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid border-primary" alt="cairn"></div>
 						<div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
 						<div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
 						<div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
@@ -381,7 +381,7 @@
 						<div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
 						<div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
 						<div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-					</div>
+					</div> #}
 				</div>
 
 			</div>
@@ -397,8 +397,8 @@
 			<div class="container section-title" data-aos="fade-up">
 				<h2>Services</h2>
 				<p>
-					<span>Check Our</span>
-					<span class="description-title">Services</span>
+					<span>Missions </span>
+					<span class="description-title"> et Expériences QHSE   </span>
 				</p>
 			</div>
 			<!-- End Section Title -->
@@ -407,85 +407,20 @@
 
 				<div class="row gy-4">
 
+							{% for experience in experiences %}
 					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
 						<div class="service-item position-relative">
 							<div class="icon">
 								<i class="bi bi-activity"></i>
 							</div>
 							<a href="#" class="stretched-link">
-								<h3>Nesciunt Mete</h3>
+								
+								<h3> {{experience.poste }} </h3>
 							</a>
-							<p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+							<p> {{experience.description | slice(0,350) }} ...</p>
 						</div>
 					</div>
-					<!-- End Service Item -->
-
-					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-						<div class="service-item position-relative">
-							<div class="icon">
-								<i class="bi bi-broadcast"></i>
-							</div>
-							<a href="#" class="stretched-link">
-								<h3>Eosle Commodi</h3>
-							</a>
-							<p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-						</div>
-					</div>
-					<!-- End Service Item -->
-
-					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-						<div class="service-item position-relative">
-							<div class="icon">
-								<i class="bi bi-easel"></i>
-							</div>
-							<a href="#" class="stretched-link">
-								<h3>Ledo Markt</h3>
-							</a>
-							<p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-						</div>
-					</div>
-					<!-- End Service Item -->
-
-					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-						<div class="service-item position-relative">
-							<div class="icon">
-								<i class="bi bi-bounding-box-circles"></i>
-							</div>
-							<a href="#" class="stretched-link">
-								<h3>Asperiores Commodit</h3>
-							</a>
-							<p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-							<a href="#" class="stretched-link"></a>
-						</div>
-					</div>
-					<!-- End Service Item -->
-
-					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-						<div class="service-item position-relative">
-							<div class="icon">
-								<i class="bi bi-calendar4-week"></i>
-							</div>
-							<a href="#" class="stretched-link">
-								<h3>Velit Doloremque</h3>
-							</a>
-							<p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-							<a href="#" class="stretched-link"></a>
-						</div>
-					</div>
-					<!-- End Service Item -->
-
-					<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-						<div class="service-item position-relative">
-							<div class="icon">
-								<i class="bi bi-chat-square-text"></i>
-							</div>
-							<a href="#" class="stretched-link">
-								<h3>Dolori Architecto</h3>
-							</a>
-							<p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-							<a href="#" class="stretched-link"></a>
-						</div>
-					</div>
+							{% endfor %}
 					<!-- End Service Item -->
 
 				</div>
@@ -522,9 +457,9 @@
 
 						<div class="swiper-slide">
 							<div class="testimonial-item">
-								<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-								<h3>Saul Goodman</h3>
-								<h4>Ceo &amp; Founder</h4>
+								<img src="assets/img/daouda-picture.jpeg" class="testimonial-img" alt="camara">
+								<h3>CAMARA Daouda </h3>
+								<h4>Ingénieur Qualité &amp; Conseiller en HSE - Développeur </h4>
 								<div class="stars">
 									<i class="bi bi-star-fill"></i>
 									<i class="bi bi-star-fill"></i>
@@ -534,7 +469,7 @@
 								</div>
 								<p>
 									<i class="bi bi-quote quote-icon-left"></i>
-									<span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+									<span>Il y a toujours un talent que vous pouvez acquérir encore davantage en travaillant durement. De l'energie, de la passion et du sérieux simplement. Rêver grand et croire que tout est possible. </span>
 									<i class="bi bi-quote quote-icon-right"></i>
 								</p>
 							</div>
