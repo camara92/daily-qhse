@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription {% endblock %}
+
+{% block body %}
+   
+                <div class="row animate-box">
+                    <div class="col-md-12 col-md-offset-2 text-center fh5co-heading">
+                        <h2>Merci de vous inscrire si ce n'est pas encore fait</h2>
+                        <hr class="text-danger ">
+                        <h3 class="text-center text-bold ">Merci de vous inscrire et réserver votre livre à lire dans notre bibliopartage</h3>
+                        <div class="border border-info bg-info container ">
+                            {{ form_errors(registrationForm) }}
+                            {{ form_start(registrationForm) }}
+                                {{ form_row(registrationForm.nom, {'attr': {'class': 'form form-control text-center'}}) }}
+                                {{ form_row(registrationForm.prenom, {'attr': {'class': 'form form-control text-center'}}) }}
+                                {{ form_row(registrationForm.adress, {'attr': {'class': 'form form-control text-center'}}) }}
+                                {{ form_row(registrationForm.photo, {'attr': {'class': 'form form-control'}}) }}
+                                {{ form_row(registrationForm.email, {'attr': {'class': 'form form-control text-center'}}) }}
+                                {{ form_row(registrationForm.password, {'attr': {'class': 'form form-control text-center'}}) }}
+                                <button type="submit" class="btn form form-control btn-primary bg-success mt-5 btn-block" style="margin-top: 15px;">S'inscrire</button>
+                            {{ form_end(registrationForm) }}
+                        </div>
+                    </div>
+                </div>
+           
+{% endblock %}
