@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\FAQ;
 use App\Form\FAQType;
+use App\Repository\FAQRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -37,6 +38,16 @@ class QuestionsController extends AbstractController
 
         return $this->render('questions/question-answer.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+    #[Route('/show-question_answers', name: 'app_question-aswer_show')]
+    public function show(Request $request, FAQRepository $fAQRepository): Response
+    {
+       
+      
+
+        return $this->render('questions/show.qa.html.twig', [
+            'qa' => $fAQRepository->findAll(),
         ]);
     }
 }
