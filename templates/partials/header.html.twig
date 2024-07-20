@@ -14,14 +14,13 @@
           <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
         </div>
       </div>
-    </div><!-- End Top Bar -->
+    </div>
 
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <a href="{{path('app_home')}}" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.png" alt=""> -->
+        
           <h1 class="sitename">Camaractualités  </h1>
         </a>
 
@@ -39,9 +38,9 @@
                 <li class="dropdown"><a href="#"><span>Espace compte </span> <i
                       class="bi bi-chevron-down toggle-dropdown"></i></a>
                   <ul>
-                    <li><a href="#">Connexion  </a></li>
-                    <li><a href="#">Déconexion  </a></li>
-                    <li><a href="#">Inscription  </a></li>
+                    <li><a href="{{path('app_login')}}">Connexion  </a></li>
+                    <li><a href="{{path('app_logout')}}">Déconexion  </a></li>
+                    <li><a href="{{path('app_register')}}">Inscription  </a></li>
 
                   </ul>
                 </li>

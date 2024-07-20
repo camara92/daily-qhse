@@ -15,6 +15,16 @@ class FAQRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, FAQ::class);
     }
+    /**
+     * @return FAQ[] Returns an array of the 5 first Question objects
+     */
+    public function findFirstFiveQuestions()
+    {
+        return $this->createQueryBuilder('q')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult();
+    }
 
     //    /**
     //     * @return FAQ[] Returns an array of FAQ objects
