@@ -2,6 +2,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -35,6 +37,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: "string", length: 255, nullable: true)]
     private ?string $photo = null;
+
+    /**
+     * @var Collection<int, Article>
+     */
+    #[ORM\OneToMany(targetEntity: Article::class, mappedBy: 'user')]
+    private Collection $articles;
+
+    /**
+     * @var Collection<int, FAQ>
+     */
+    #[ORM\OneToMany(targetEntity: FAQ::class, mappedBy: 'user')]
+    private Collection $fAQs;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+        $this->fAQs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -135,6 +155,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPhoto(?string $photo): static
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Article>
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): static
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles->add($article);
+            $article->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): static
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getUser() === $this) {
+                $article->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, FAQ>
+     */
+    public function getFAQs(): Collection
+    {
+        return $this->fAQs;
+    }
+
+    public function addFAQ(FAQ $fAQ): static
+    {
+        if (!$this->fAQs->contains($fAQ)) {
+            $this->fAQs->add($fAQ);
+            $fAQ->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFAQ(FAQ $fAQ): static
+    {
+        if ($this->fAQs->removeElement($fAQ)) {
+            // set the owning side to null (unless already changed)
+            if ($fAQ->getUser() === $this) {
+                $fAQ->setUser(null);
+            }
+        }
 
         return $this;
     }

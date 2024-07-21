@@ -20,6 +20,9 @@ class FAQ
     #[ORM\Column(type: Types::TEXT)]
     private ?string $reponse = null;
 
+    #[ORM\ManyToOne(inversedBy: 'fAQs')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +48,18 @@ class FAQ
     public function setReponse(string $reponse): static
     {
         $this->reponse = $reponse;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -1,51 +1,97 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} FAQ - Questions-Reponses   {% endblock %}
+{% block title %} FAQ - Questions-Réponses {% endblock %}
 
 {% block body %}
+<section id="faq" class="faq section light-background">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>F.A.Q</h2>
+        <p>
+            <span>Foire QHSE </span>
+            <span class="description-title">Questions et Réponses </span>
+        </p>
+    </div>
+    <!-- End Section Title -->
 
-	<section id="faq" class="faq section light-background">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+                <div class="faq-container">
+                    {% for quesAns in qa %}
+                        <div class="faq-item">
+                            <h3 class="faq-question" style="cursor: pointer;">{{ quesAns.question }}</h3>
+                            <div class="faq-content" style="display: none;">
+                                <p>{{ quesAns.reponse }}</p>
+                            </div>
+                            <i class="faq-toggle bi bi-chevron-right" style="cursor: pointer;"></i>
+                        </div>
+                    {% endfor %}
+                    <!-- End Faq item-->
+                </div>
+            </div>
+            <!-- End Faq Column-->
+        </div>
+    </div>
+</section>
 
-		<!-- Section Title -->
-		<div class="container section-title" data-aos="fade-up">
-			<h2>F.A.Q </h2>
-			<p>
-				<span>Foire QHSE </span>
-				<span class="description-title">Questions et Réponses </span>
-			</p>
-		</div>
-		<!-- End Section Title -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
 
-		<div class="container">
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const content = item.querySelector('.faq-content');
+        const toggleIcon = item.querySelector('.faq-toggle');
 
-			<div class="row justify-content-center">
+        question.addEventListener('click', () => {
+            const isOpen = content.style.display === 'block';
 
-				<div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+            // Close all other faq contents
+            faqItems.forEach(otherItem => {
+                const otherContent = otherItem.querySelector('.faq-content');
+                const otherIcon = otherItem.querySelector('.faq-toggle');
+                otherContent.style.display = 'none';
+                otherIcon.classList.remove('bi-chevron-down');
+                otherIcon.classList.add('bi-chevron-right');
+            });
 
-					<div class="faq-container">
-					{% for quesAns in qa %}
-						
-						<div class="faq-item faq-active">
-							<h3>  {{ quesAns.question }}</h3>
-							<div class="faq-content">
-								<p> {{quesAns.reponse }} </p>
-							</div>
-							<i class="faq-toggle bi bi-chevron-right"></i>
-						</div>
-					{% endfor %}
-						<!-- End Faq item-->
+            // Toggle the clicked faq content
+            if (isOpen) {
+                content.style.display = 'none';
+                toggleIcon.classList.remove('bi-chevron-down');
+                toggleIcon.classList.add('bi-chevron-right');
+            } else {
+                content.style.display = 'block';
+                toggleIcon.classList.remove('bi-chevron-right');
+                toggleIcon.classList.add('bi-chevron-down');
+            }
+        });
 
-						
+        toggleIcon.addEventListener('click', () => {
+            const isOpen = content.style.display === 'block';
 
-					</div>
+            // Close all other faq contents
+            faqItems.forEach(otherItem => {
+                const otherContent = otherItem.querySelector('.faq-content');
+                const otherIcon = otherItem.querySelector('.faq-toggle');
+                otherContent.style.display = 'none';
+                otherIcon.classList.remove('bi-chevron-down');
+                otherIcon.classList.add('bi-chevron-right');
+            });
 
-				</div>
-				<!-- End Faq Column-->
-
-			</div>
-
-		</div>
-
-	</section>
-
-    {% endblock %}
+            // Toggle the clicked faq content
+            if (isOpen) {
+                content.style.display = 'none';
+                toggleIcon.classList.remove('bi-chevron-down');
+                toggleIcon.classList.add('bi-chevron-right');
+            } else {
+                content.style.display = 'block';
+                toggleIcon.classList.remove('bi-chevron-right');
+                toggleIcon.classList.add('bi-chevron-down');
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

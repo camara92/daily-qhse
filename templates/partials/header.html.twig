@@ -27,7 +27,7 @@
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="#hero" class="active">Acualités QHSE </a></li>
-            <li><a href="#about"> Créer un article </a></li>
+            <li><a href="{{path('app_ajout-article')}}"> Créer un article </a></li>
             <li><a href="#services">Services et missions </a></li>
             <li><a href="#portfolio">Mes missions en QHSE </a></li>
             <li><a href="#team">Team Daily QHSE </a></li>
@@ -47,7 +47,7 @@
                 <li class="dropdown"><a href="#"><span>Mes articles </span> <i
                       class="bi bi-chevron-down toggle-dropdown"></i></a>
                   <ul>
-                    <li><a href="#">Créer un article </a></li>
+                    <li><a href="{{path('app_ajout-article')}}">Créer un article </a></li>
                     <li><a href="#">Mes articles </a></li>
                     <li><a href="#">Mes articles récents </a></li>
 
@@ -62,7 +62,8 @@
                 <li class="dropdown"><a href="#"><span>Articles</span> <i
                       class="bi bi-chevron-down toggle-dropdown"></i></a>
                   <ul>
-                    <li><a href="#">Créer un article </a></li>
+                    <li><a href=" {{path('app_question-aswer')}} ">Faire un FAQ  </a></li>
+                    <li><a href="{{path('app_ajout-article')}}">Créer un article </a></li>
                     <li><a href="#">Mes articles </a></li>
                     <li><a href="#">Articles récents </a></li>
 
