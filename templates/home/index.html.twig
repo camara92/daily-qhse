@@ -428,10 +428,10 @@
 
 		<!-- Section Title -->
 		<div class="container section-title" data-aos="fade-up">
-			<h2>Services</h2>
+			<h2>Consulter les articles </h2>
 			<p>
-				<span>Missions </span>
-				<span class="description-title"> et Expériences QHSE </span>
+				<span>Articles </span>
+				<span class="description-title"> et Nouveautés  </span>
 			</p>
 		</div>
 		<!-- End Section Title -->
@@ -440,21 +440,23 @@
 
 			<div class="row gy-4">
 
-				{% for experience in experiences %}
+				{% for article in sevenarticles %}
 				<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
 					<div class="service-item position-relative">
 						<div class="icon">
-							<i class="bi bi-activity"></i>
+							{# <i class="bi bi-activity"></i> #}
+							<img class="my-2" src="/uploads/articles_images/{{article.imagesReferences}}" alt="{{article.titre}}" width="600px" height="100px"></a>
 						</div>
 						<a href="#" class="stretched-link">
 
-							<h3> {{experience.poste }} </h3>
+							<h3> {{article.titre }} </h3>
 						</a>
-						<p> {{experience.description | slice(0,350) }} ...</p>
+						<p> {{article.description | slice(0,350) }} ...</p>
 					</div>
 				</div>
 				{% endfor %}
 				<!-- End Service Item -->
+				<h3 class="text-center "> Voir tous les articles ? cliquer <a href=" {{path('app_listes_articles')}} ">Les articles </a> </h3>
 
 			</div>
 

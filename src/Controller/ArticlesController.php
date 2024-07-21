@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Entity\User;
 use App\Form\ArticlesType;
+use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -73,6 +74,16 @@ class ArticlesController extends AbstractController
         }
         return $this->render('articles/ajouter.article.html.twig', [
             'form' => $form->createView(),
+            
+        ]);
+    }
+
+    // les listes 
+    #[Route('listes_article', name:'app_listes_articles')]
+    public function listesArticles(ArticleRepository $articleRepository): Response {
+
+        return $this->render('articles/listes.article.html.twig', [
+            'listes_articles' => $articleRepository->findAll(),
             
         ]);
     }

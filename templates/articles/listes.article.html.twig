@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} DAILY QHSE - Listes articles {% endblock %}
+
+{% block body %}
+
+	<section id="services" class="services section">
+
+		<!-- Section Title -->
+		<div class="container section-title" data-aos="fade-up">
+			<h2>Tous les sujets  </h2>
+			<p>
+				<span>Articles </span>
+				<span class="description-title"> et Catégories   </span>
+			</p>
+		</div>
+		<!-- End Section Title -->
+
+		<div class="container">
+
+			<div class="row gy-4">
+
+				{% for article in listes_articles %}
+				<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+					<div class="service-item position-relative">
+						<div class="icon">
+							{# <i class="bi bi-activity"></i> #}
+							<img class="my-2" src="/uploads/articles_images/{{article.imagesReferences}}" alt="{{article.titre}}" width="600px" height="100px"></a>
+						</div>
+						<a href="#" class="stretched-link">
+
+							<h3> {{article.titre }} </h3>
+						</a>
+						<p> {{article.description | slice(0,350) }} ...</p>
+                        <div class="">
+                            <p class="bi btn btn-outline-dark   m-2"> Date  : {{article.createdAt | date('d/m/Y H:i')}} </p>
+                            <i class="fa-sharp fa-regular fa-comment"> <i class="">10</i> </i> 
+                            <button class="bi btn btn-info "> Catégorie : {{article.categorie }} </button>
+                            
+                        </div>
+					</div>
+				</div>
+				{% endfor %}
+				<!-- End Service Item -->
+				<h3 class="text-center "> Créer un <a href=" {{path('app_ajout-article')}} ">articles </a> </h3>
+
+			</div>
+
+		</div>
+
+	</section>
+
+    {% endblock %}
