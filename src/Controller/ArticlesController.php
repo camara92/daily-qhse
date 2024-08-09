@@ -85,6 +85,22 @@ class ArticlesController extends AbstractController
         return $this->render('articles/listes.article.html.twig', [
             'listes_articles' => $articleRepository->findAll(),
             
+            
         ]);
     }
+  
+
+    #[Route("/detail/{id}", name:'detail_article')]
+
+    public function details(Article $article): Response
+    {
+        return $this->render('articles/detail.html.twig', [
+            'article' => $article,
+
+        ]);
+    }
+
+
+ 
+
 }
