@@ -17,6 +17,10 @@
     'attr': {'class': 'form form-control'},
     'label': 'Entreprise'
 }) }}
+{{ form_row(form.sector, {
+    'attr': {'class': 'form form-control'},
+    'label': 'Secteur d\'activité '
+}) }}
 {{ form_row(form.description, {
     'attr': {'class': 'form form-control'},
     'label': 'Détail de la mission'
@@ -31,6 +35,11 @@
     'attr': {'class': 'form form-control text-center', 'placeholder':'descrioption (facultative)'},
     'label': 'Date entrée', 
 	
+}) }}
+
+{{ form_row(form.photo, {
+    'attr': {'class': 'form form-control'},
+    'label': 'Ajouter logo entreprise ou mission '
 }) }}
 
 {{ form_row(form.fin, {

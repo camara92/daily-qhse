@@ -634,21 +634,26 @@
 
 				<ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
 					<li data-filter="*" class="filter-active">Tous </li>
-					<li data-filter=".filter-app">Automobiles </li>
-					<li data-filter=".filter-product">Tertiaires</li>
-					<li data-filter=".filter-branding">Digitalisations et IT </li>
-					<li data-filter=".filter-yseis">Ingenierie QHSE et Coordination Santé et Sécurité </li>
-					<li data-filter=".filter-association">Associations </li>
+					<li data-filter=".filter-experience-automobile">Automobiles </li>
+					<li data-filter=".filter-experience-agroalimentaire">Industrie agroalimentaire </li>
+					<li data-filter=".filter-experience-informatique">Développement web </li>
+					<li data-filter=".filter-experience-divers">Digitalisations et IT </li>
+					<li data-filter=".filter-experience-qhse">Ingenierie QHSE et Coordination Santé et Sécurité </li>
+					<li data-filter=".filter-experience-association">Associations </li>
+				
 				</ul>
 				<!-- End Portfolio Filters -->
 
 				<div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
 					{% for experience in experiences %}
-					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-auto filter-experience-{{ experience.sector}} filter-experience-{{ experience.sector}} ">
 						<center> <i> {{experience.poste }} </i>
 						</center>
-						<img src="assets/img/sg/sg-1.jpg" class="img-fluid" alt="">
+						<center><i> {{experience.sector }} </i></center>
+						<center> <img src="/uploads/experiences/{{experience.photo}}" alt="{{experience.poste}}" class="border img-fluid"  width="300px" style=" height:250px;"></center>
+						{# <img src="assets/img/sg/sg-1.jpg" class="img-fluid" alt=""> #}
+					
 						<div class="portfolio-info">
 							<h4> {{experience.poste }} </h4>
 							<p> {{experience.description | slice(0, 30 )}} </p>
@@ -660,201 +665,13 @@
 								<i class="bi bi-link-45deg"></i>
 							</a>
 						</div>
+					<center> Date début :  <i> {{experience.dateStarted | date('d/m/Y H:i')}} </i> </center>
+					<hr>
 					</div>
+
+					{# faire le filtraage  1#}
+		
 					{% endfor %}
-					<!-- End Portfolio Item -->
-					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-yseis">
-						<img src="assets/img/yseis/cp-2.jpg" class="img-fluid" alt="">
-						<div class="portfolio-info">
-							<h4>Présentation Conseiller prévention HSE </h4>
-							<p>Rôle du préventeur dans un chantier de construction BTP et en génie civile. </p>
-							<a href="assets/img/sg/sg-1.jpg" title="App 1" data-gallery="portfolio-gallery-app"
-								class="glightbox preview-link">
-								<i class="bi bi-zoom-in"></i>
-							</a>
-							<a href="portfolio-details.html" title="More Details" class="details-link">
-								<i class="bi bi-link-45deg"></i>
-							</a>
-						</div>
-					</div>
-					{# CP first  #}
-					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-association">
-						<img src="assets/img/association/ass-1.jpg" class="img-fluid" alt="">
-						<div class="portfolio-info">
-							<h4>BiblioCollect</h4>
-							<p>Association pour collecte des articles et distribuer dans des communes et villages au Guidimakha.</p>
-							<a href="assets/img/sg/sg-1.jpg" title="App 1" data-gallery="portfolio-gallery-app"
-								class="glightbox preview-link">
-								<i class="bi bi-zoom-in"></i>
-							</a>
-							<a href="portfolio-details.html" title="More Details" class="details-link">
-								<i class="bi bi-link-45deg"></i>
-							</a>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-association">
-						<img src="assets/img/association/ass-1.jpg" class="img-fluid" alt="">
-						<div class="portfolio-info">
-							<h4>Association Jeunesse de Hassi Chegar </h4>
-							<p>Lorem ipsum, dolor sit</p>
-							<a href="www.bibliocollectµ.fr" title="App 1" data-gallery="portfolio-gallery-app"
-								class="glightbox preview-link">
-								<i class="bi bi-zoom-in"></i>
-							</a>
-							<a href="portfolio-details.html" title="More Details" class="details-link">
-								<i class="bi bi-link-45deg"></i>
-							</a>
-						</div>
-					</div>
-					
-					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-yseis">
-						{# <img src="assets/img/yseis/cp-1.mp4" class="img-fluid" alt=""> #}
-						<video controls class="img-fluid">
-							<source src="{{ asset('assets/img/yseis/cp-1.mp4') }}" type="video/mp4">
-							cliquer
-						</video>
-						<div class="portfolio-info">
-							<h4>Présentation Conseiller prévention HSE </h4>
-							<p>Rôle du préventeur dans un chantier de construction BTP et en génie civile. </p>
-							<a href="assets/img/sg/sg-1.jpg" title="App 1" data-gallery="portfolio-gallery-app"
-								class="glightbox preview-link">
-								<i class="bi bi-zoom-in"></i>
-							</a>
-							<a href="portfolio-details.html" title="More Details" class="details-link">
-								<i class="bi bi-link-45deg"></i>
-							</a>
-						</div>
-					</div>
-					<!-- End Portfolio Item -->
-
-					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-						<img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-						<div class="portfolio-info">
-							<h4>Product 1</h4>
-							<p>Lorem ipsum, dolor sit</p>
-							<a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1"
-								data-gallery="portfolio-gallery-product" class="glightbox preview-link">
-								<i class="bi bi-zoom-in"></i>
-							</a>
-							<a href="portfolio-details.html" title="More Details" class="details-link">
-								<i class="bi bi-link-45deg"></i>
-							</a>
-						</div>
-					</div>
-					<!-- End Portfolio Item -->
-
-					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-						<img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
-						<div class="portfolio-info">
-							<h4>Branding 1</h4>
-							<p>Lorem ipsum, dolor sit</p>
-							<a href="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1"
-								data-gallery="portfolio-gallery-branding" class="glightbox preview-link">
-								<i class="bi bi-zoom-in"></i>
-							</a>
-							<a href="portfolio-details.html" title="More Details" class="details-link">
-								<i class="bi bi-link-45deg"></i>
-							</a>
-						</div>
-					</div>
-					<!-- End Portfolio Item -->
-
-					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-						<img src="assets/img/sg/sg-2.jpg" class="img-fluid" alt="">
-						<div class="portfolio-info">
-							<h4>App 2</h4>
-							<p>Lorem ipsum, dolor sit</p>
-							<a href="assets/img/sg/sg-2.jpg" title="App 2" data-gallery="portfolio-gallery-app"
-								class="glightbox preview-link">
-								<i class="bi bi-zoom-in"></i>
-							</a>
-							<a href="portfolio-details.html" title="More Details" class="details-link">
-								<i class="bi bi-link-45deg"></i>
-							</a>
-						</div>
-					</div>
-					<!-- End Portfolio Item -->
-
-					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-						<img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
-						<div class="portfolio-info">
-							<h4>Product 2</h4>
-							<p>Lorem ipsum, dolor sit</p>
-							<a href="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2"
-								data-gallery="portfolio-gallery-product" class="glightbox preview-link">
-								<i class="bi bi-zoom-in"></i>
-							</a>
-							<a href="portfolio-details.html" title="More Details" class="details-link">
-								<i class="bi bi-link-45deg"></i>
-							</a>
-						</div>
-					</div>
-					<!-- End Portfolio Item -->
-
-					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-						<img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
-						<div class="portfolio-info">
-							<h4>Branding 2</h4>
-							<p>Lorem ipsum, dolor sit</p>
-							<a href="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2"
-								data-gallery="portfolio-gallery-branding" class="glightbox preview-link">
-								<i class="bi bi-zoom-in"></i>
-							</a>
-							<a href="portfolio-details.html" title="More Details" class="details-link">
-								<i class="bi bi-link-45deg"></i>
-							</a>
-						</div>
-					</div>
-					<!-- End Portfolio Item -->
-
-					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-						<img src="assets/img/sg/sg-3.jpg" class="img-fluid" alt="">
-						<div class="portfolio-info">
-							<h4>App 3</h4>
-							<p>Lorem ipsum, dolor sit</p>
-							<a href="assets/img/sg/sg-3.jpg" title="App 3" data-gallery="portfolio-gallery-app"
-								class="glightbox preview-link">
-								<i class="bi bi-zoom-in"></i>
-							</a>
-							<a href="portfolio-details.html" title="More Details" class="details-link">
-								<i class="bi bi-link-45deg"></i>
-							</a>
-						</div>
-					</div>
-					<!-- End Portfolio Item -->
-
-					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-						<img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
-						<div class="portfolio-info">
-							<h4>Product 3</h4>
-							<p>Lorem ipsum, dolor sit</p>
-							<a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3"
-								data-gallery="portfolio-gallery-product" class="glightbox preview-link">
-								<i class="bi bi-zoom-in"></i>
-							</a>
-							<a href="portfolio-details.html" title="More Details" class="details-link">
-								<i class="bi bi-link-45deg"></i>
-							</a>
-						</div>
-					</div>
-					<!-- End Portfolio Item -->
-
-					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-						<img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
-						<div class="portfolio-info">
-							<h4>Branding 3</h4>
-							<p>Lorem ipsum, dolor sit</p>
-							<a href="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2"
-								data-gallery="portfolio-gallery-branding" class="glightbox preview-link">
-								<i class="bi bi-zoom-in"></i>
-							</a>
-							<a href="portfolio-details.html" title="More Details" class="details-link">
-								<i class="bi bi-link-45deg"></i>
-							</a>
-						</div>
-					</div>
-					<!-- End Portfolio Item -->
-
 				</div>
 				<!-- End Portfolio Container -->
 

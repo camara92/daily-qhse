@@ -7,6 +7,7 @@ parameters:
         image_directory: '%kernel.project_dir%/public/uploads/users'
         image_articles: '%kernel.project_dir%/public/uploads/articles_images'
         image_articles_videos: '%kernel.project_dir%/public/uploads/articles_videos'
+        image_experiences: '%kernel.project_dir%/public/uploads/experiences'
 
 services:
     # default configuration for services in *this* file
