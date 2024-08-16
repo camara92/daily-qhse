@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} DAILY QHSE - Experiences  {% endblock %}
+
+{% block body %}
+
+	<section id="services" class="services section">
+
+		<!-- Section Title -->
+		<div class="container section-title" data-aos="fade-up">
+			<h2>Tous les sujets  </h2>
+			<p>
+				<span>Mes expériences </span>
+				<span class="description-title"> et Catégories   </span>
+			</p>
+		</div>
+		<!-- End Section Title -->
+
+		<div class="container">
+
+			<div class="row gy-4">
+
+				{% for experience in experiences %}
+				<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+					<div class="service-item position-relative">
+						{# <div class="icon">
+							<i class="bi bi-activity"></i>
+							<img class="my-2" src="/uploads/experiences_images/{{experience.imagesReferences}}" alt="{{experience.titre}}" width="600px" height="100px"></a>
+						</div> #}
+						<a href="" class="btn btn-primary btn-outline btn-lg">Voir </a>
+						<a href="" class="stretched-link">
+
+							<h3> {{experience.poste }} </h3>
+						</a>
+						<p> {{experience.entreprise }} ...</p>
+						<p> {{experience.description | slice(0,350) }} ...</p>
+                        <div class="">
+                            <p class="bi btn btn-outline-dark   m-2"> Date  : {{experience.dateStarted | date('d/m/Y H:i')}} </p>
+                            
+                            <button class="bi btn btn-info "> Catégorie : {{experience.service }} </button>
+                            
+                        </div>
+					</div>
+				</div>
+				{% endfor %}
+				
+				<h3 class="text-center "> Créer un <a href=" {{path('add_exp')}} ">experience </a> </h3>
+
+			</div>
+
+		</div>
+
+	</section>
+
+    {% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Détails de l'article - {{ article.titre }} {% endblock %}
+
+{% block body %}
+
+    <section id="services" class="services section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Tous les sujets</h2>
+            <p>
+                <span>Articles</span>
+                <span class="description-title">et Catégories</span>
+            </p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-12 col-md-12" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <h1>Modifier l'Article : {{ article.titre }}</h1>
+
+                    {{ form_start(form) }}
+                    {{ form_row(form.titre) }}
+                    {{ form_row(form.description) }}
+                    {{ form_row(form.motsCles) }}
+                    
+                    <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                    {{ form_end(form) }}
+                </div>
+                
+                <h3 class="text-center">Créer un <a href="{{ path('app_ajout-article') }}">nouvel article</a></h3>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}

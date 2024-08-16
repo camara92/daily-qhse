@@ -59,8 +59,8 @@ class ExperiencesController extends AbstractController
 
 
         return $this->render('experiences/liste.html.twig', [
-            // 'livres' => $livres,
-            'livres' => $experienceRepository->findAll(), 
+            // 'experiences' => $experiences,
+            'experiences' => $experienceRepository->findAll(), 
             
 
         ]);

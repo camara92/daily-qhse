@@ -75,7 +75,7 @@ class ArticlesType extends AbstractType
             ->add('creditimgvideo', TextType::class, [
                 'label' => 'Signé par',
                 'required' => true,
-                'attr' => ['placeholder' => 'signé par : Daouda , CR7, GOAT Messi',
+                'attr' => ['placeholder' => 'signé par : Daouda , ISO 9001, Qualité et SST, SPS',
            ] 
             ])
             // ->add('createdAt', null, [

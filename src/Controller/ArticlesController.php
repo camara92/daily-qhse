@@ -100,6 +100,35 @@ class ArticlesController extends AbstractController
         ]);
     }
 
+    #[Route("/article/modifier/{id}", name: "modifier_article")]
+   
+
+
+
+        public function edit(Request $request, Article $article, EntityManagerInterface $entityManager): Response
+        {
+            // Créer le formulaire et lier l'entité Article à celui-ci
+            $form = $this->createForm(ArticlesType::class, $article);
+            
+            // Gérer la requête
+            $form->handleRequest($request);
+    
+            // Vérifier si le formulaire est soumis et valide
+            if ($form->isSubmitted() && $form->isValid()) {
+                // Mettre à jour l'article en base de données
+                $entityManager->flush();
+    
+                // Rediriger ou afficher un message de succès
+                return $this->redirectToRoute('article_show', ['id' => $article->getId()]);
+            }
+
+        return $this->render('articles/modifier.html.twig', [
+            'form' => $form->createView(),
+            'article' => $article,
+        ]);
+    }
+
+    
 
  
 

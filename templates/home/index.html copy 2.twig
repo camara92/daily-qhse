@@ -620,7 +620,7 @@
 
 		<!-- Section Title -->
 		<div class="container section-title" data-aos="fade-up">
-			<h2>Portefolio</h2>
+			<h2>Portfolio</h2>
 			<p>
 				<span>Voir mes projets dans le secteur de l'Inoovation et &nbsp;</span>
 				<span class="description-title">Automobile </span>
@@ -644,14 +644,11 @@
 
 				<div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-					{% for experience in experiences %}
 					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-						<center> <i> {{experience.poste }} </i>
-						</center>
 						<img src="assets/img/sg/sg-1.jpg" class="img-fluid" alt="">
 						<div class="portfolio-info">
-							<h4> {{experience.poste }} </h4>
-							<p> {{experience.description | slice(0, 30 )}} </p>
+							<h4>App 1</h4>
+							<p>Lorem ipsum, dolor sit</p>
 							<a href="assets/img/sg/sg-1.jpg" title="App 1" data-gallery="portfolio-gallery-app"
 								class="glightbox preview-link">
 								<i class="bi bi-zoom-in"></i>
@@ -661,7 +658,6 @@
 							</a>
 						</div>
 					</div>
-					{% endfor %}
 					<!-- End Portfolio Item -->
 					<div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-yseis">
 						<img src="assets/img/yseis/cp-2.jpg" class="img-fluid" alt="">
