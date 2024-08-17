@@ -89,4 +89,66 @@ class ExperiencesController extends AbstractController
 
         ]);
     }
+
+    #[Route("/experience-detail/{id}", name:'detail_experience')]
+
+    public function details(Experience $experience): Response
+    {
+        return $this->render('experiences/detail.html.twig', [
+            'experience' => $experience,
+
+        ]);
+    }
+
+    #[Route("/experience/modifier/{id}", name: "modifier_experience")]
+   
+
+
+
+    public function edit(Request $request, experience $experience, EntityManagerInterface $entityManager): Response
+    {
+        // Créer le formulaire et lier l'entité experience à celui-ci
+        $form = $this->createForm(experiencesType::class, $experience);
+        
+        // Gérer la requête
+        $form->handleRequest($request);
+
+        // Vérifier si le formulaire est soumis et valide
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Mettre à jour l'experience en base de données
+            $entityManager->flush();
+
+            // Rediriger ou afficher un message de succès
+            return $this->redirectToRoute('experience_show', ['id' => $experience->getId()]);
+        }
+
+    return $this->render('experiences/modifier.html.twig', [
+        'form' => $form->createView(),
+        'experience' => $experience,
+    ]);
+}
+
+#[Route("/experience/supprimer/{id}", name: "supprimer_experience")]
+public function supprimerexperience(Experience $experience, EntityManagerInterface $entityManager): Response
+{
+    // Vérifier si l'utilisateur connecté est un administrateur
+    if (!$this->isGranted('ROLE_ADMIN')) {
+      
+        
+        // return $this->redirectToRoute('app_listes_experiences');
+        $entityManager->remove($experience);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'L\'experience a été supprimé avec succès.');
+        
+    }
+    
+    
+
+
+
+
+    return $this->redirectToRoute('show_experience');
+}
+
 }

@@ -10,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
+
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -128,7 +129,28 @@ class ArticlesController extends AbstractController
         ]);
     }
 
+    #[Route("/article/supprimer/{id}", name: "supprimer_article")]
+    public function supprimerArticle(Article $article, EntityManagerInterface $entityManager): Response
+    {
+        // Vérifier si l'utilisateur connecté est un administrateur
+        if (!$this->isGranted('ROLE_ADMIN')) {
+          
+            
+            // return $this->redirectToRoute('app_listes_articles');
+            $entityManager->remove($article);
+            $entityManager->flush();
     
+            $this->addFlash('success', 'L\'article a été supprimé avec succès.');
+            
+        }
+        
+        
+
+
+
+
+        return $this->redirectToRoute('app_listes_articles');
+    }
 
  
 

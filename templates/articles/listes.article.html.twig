@@ -27,16 +27,16 @@
 							{# <i class="bi bi-activity"></i> #}
 							<img class="my-2" src="/uploads/articles_images/{{article.imagesReferences}}" alt="{{article.titre}}" width="600px" height="100px"></a>
 						</div>
-						<a href="{{ path('detail_article', {'id': article.id}) }}" class="btn btn-primary btn-outline btn-lg">Découvrir </a>
+						 {# <a href="{{ path('detail_article', {'id': article.id}) }}" class="btn btn-primary btn-outline btn-lg">Découvrir </a> #}
 						<a href="{{ path('detail_article', {'id': article.id}) }} " class="stretched-link">
 
 							<h3> {{article.titre }} </h3>
-						</a>
+						</a> 
 						<p> {{article.description | slice(0,350) }} ...</p>
                         <div class="">
-                            <p class="bi btn btn-outline-dark   m-2"> Date  : {{article.createdAt | date('d/m/Y H:i')}} </p>
-                            <i class="fa-sharp fa-regular fa-comment"> <i class="">10</i> </i> 
-                            <button class="bi btn btn-info "> Catégorie : {{article.categorie }} </button>
+                            <p class="bi btn btn-outline-dark   m-1"> Créé le  : {{article.createdAt | date('d/m/Y H:i')}} </p>
+                            <i class="bi btn btn-outline-dark fa-comment"> <i class="">10 commentaires</i> </i> 
+                            <i class="bi btn btn-outline-dark "> Catégorie : {{article.categorie }} </i>
                             
                         </div>
 					</div>
