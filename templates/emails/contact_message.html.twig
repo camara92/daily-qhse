@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Message
+{% endblock %}
+
+{% block body %}
+
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+
+		<h3>Nouveau message de contact :</h3>
+		<ul>
+			<li>
+				<strong>Nom :</strong>
+				{{ contactMessage.getNom() }}</li>
+			<li>
+            <li>
+				<strong>Message :</strong>
+				{{ contactMessage.getPrenom() }}</li>
+				<strong>Email :</strong>
+				{{ contactMessage.getEmail() }}</li>
+			<li>
+				<strong>Sujet :</strong>
+				{{ contactMessage.getSubject() }}</li>
+			
+		</ul>
+
+
+	</div>
+
+{% endblock %}

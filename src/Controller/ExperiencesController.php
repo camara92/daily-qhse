@@ -142,11 +142,6 @@ public function supprimerexperience(Experience $experience, EntityManagerInterfa
         $this->addFlash('success', 'L\'experience a été supprimé avec succès.');
         
     }
-    
-    
-
-
-
 
     return $this->redirectToRoute('show_experience');
 }
