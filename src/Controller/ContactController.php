@@ -72,7 +72,7 @@ $contentadmin = "Bonjour CAMARA Daouda,  ". "<br/>
 Vous venez de recevoir un mail de " .$contactMessage->getNom(). ' '. $contactMessage->getPrenom() . " <br> Veiller consuler vos mails d'administration afin de traiter sa demande. 
 
 <br>Daily QHSE <br/>";
-$mailadmin->send('daoudasouleymanecamara8@gmail.com', 'Daouda', 'Confirmation de votre mail de contact', $contentadmin);
+$mailadmin->send('daoudasouleymanecamara8@gmail.com', 'Daouda', 'Nouveau contact par Messagerie de contact', $contentadmin);
 $notification = "Confirmation DAILY QHSE";
 
             $this->addFlash('success', 'Votre message a bien été envoyé !');

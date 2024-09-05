@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Mail;
 use App\Entity\Article;
 use App\Entity\User;
 use App\Form\ArticlesType;
@@ -10,8 +11,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mime\Email;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
@@ -31,7 +34,7 @@ class ArticlesController extends AbstractController
         ]);
     }
     #[Route('ajout_article', name:'app_ajout-article')]
-    public function AddArticle(Request $request, SluggerInterface $slugger) : Response 
+    public function AddArticle(Request $request, SluggerInterface $slugger,  MailerInterface $mailer,) : Response 
     {
         $user = $this->getUser();
         if (!$user) {
@@ -71,6 +74,57 @@ class ArticlesController extends AbstractController
          }
             $this->entityManager->persist($article);
             $this->entityManager->flush();
+
+            // mail de validation article ajout :
+         // Envoyer le message par e-mail
+         $email = (new Email())
+         ->from('daouda.camara.040319@gmail.com')
+        //  ->from($article->getEmail())
+         ->to('daouda.camara@atlassoon.fr') 
+         ->subject($article->getTitre())
+         ->html(
+             $this->renderView(
+                 'emails/article-email.html.twig',
+                 
+             )
+         );
+
+
+
+     $mailer->send($email);
+
+
+     $mail = new Mail();
+ $content = "Bonjour Daouda" . $article->getUser()->getNom() . " ". $article->getUser()->getPrenom() . "<br/>
+
+
+ Nous avons bien reçu votre mail concernant : <br><br><br>" . $article->getTitre() . "<br/> 
+<br>Votre article ajouté dans notre plateforme Blog Daily QHSE et nous vous remercions de votre contribution.
+<br>
+Par ailleurs, nous vous invitons à consulter notre site web : www.daouda-camara.fr pour découvrir d'autres informations.
+
+Si vous avez des questions ou besoin d'assistance supplémentaire, n'hésitez pas à nous contacter. Nous sommes là pour vous aider.
+
+En attendant, n'hésitez pas à parcourir notre catalogue en ligne pour découvrir des besoins auxquels nous pourrions vous accompagner. Si vous avez des questions ou des demandes spécifiques, n'hésitez pas à nous contacter à tout moment.
+
+Nous vous remercions encore pour votre patience et votre compréhension.
+ 
+<br>Daily QHSE  <br/>";
+$mail->send($article->getUser()->getEmail(), $article->getUser()->getNom(). ' '. $article->getUser()->getPrenom()  , "Confirmation de votre mail de contact", $content);
+
+// ecrire un mail à l'administrateur en cas de mail envoyé par un utilisater :
+
+$mailadmin = new Mail();
+$contentadmin = "Bonjour CAMARA Daouda,  ". "<br/>
+
+Vous venez de recevoir un mail de " .$article->getUser()->getNom(). ' '. $article->getUser()->getPrenom() . " <br> Veiller consuler vos mails d'administration afin de traiter sa demande. 
+
+<br>Daily QHSE <br/>";
+$mailadmin->send('daoudasouleymanecamara8@gmail.com', 'Daouda', 'Un nouveau article ajouté !!! 😍', $contentadmin);
+$notification = "Confirmation DAILY QHSE";
+
+     $this->addFlash('success', 'Votre article a bien été envoyé !');
+
             return $this->redirectToRoute('app_home');
         }
         return $this->render('articles/ajouter.article.html.twig', [
