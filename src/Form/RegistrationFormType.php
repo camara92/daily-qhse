@@ -28,7 +28,7 @@ class RegistrationFormType extends AbstractType
            
         ]) 
             ->add('prenom', TextType::class, [
-                'label' => 'Votre nom',
+                'label' => 'Votre prénom',
                 'required' => true,
                 'attr' => ['placeholder' => 'Entrez votre prénom'],
              

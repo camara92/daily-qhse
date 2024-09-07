@@ -64,17 +64,22 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
             // notifier l'inscription de l'utilisateur comme un envoi de notifi 
 
-            // $mail = new Mail(); 
-            // $content = "Bonjour " .$user->getNom() . " " .$user->getPrenom().",". "<br/>Bienvenue dans votre site destiné au partage des ressources et aux dons des livres. BiblioCollect est une association des dons des livres. Votre inscription a bien été validée. <br/> N'hésitez pas à consulter le site sur www.bibliocollect.fr afin de voir les livres, la présentation de l'association, la possibilité de devenir membre de l'association et aussi de pouvoir réserver un livre depuis le site. <br/>";
-            // $mail->send($user->getEmail(), $user->getNom(), "Inscription validée sur BiblioCollect", $content); 
-            //  $notification="Votre inscription a été enregistrée. "; 
+            $mail = new Mail(); 
+            $content = "Bonjour " .$user->getNom() . " " .$user->getPrenom().",". "<br/>Bienvenue dans votre plateforme en ressource sur la Qualité, Sécurité, hygiène et Environnement. De l'ingénierie HQSE, CSPS et dans la construction et aussi en industrie pour tous. 
+             <br/>
+             <p> N'hésitez pas poser des questions, créer des articles ou participer aux forums de discussions pour nous apporter tes connaissances. 
+             </p>
+             
+             ";
+            $mail->send($user->getEmail(), $user->getNom(), "Inscription validée sur Daily QHSE", $content); 
+             $notification="Votre inscription a été enregistrée. "; 
 
             return $this->redirectToRoute('app_home');
         }
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
-            // 'notification'=>$notification
+            'notification'=>$notification
         ]);
     }
 }

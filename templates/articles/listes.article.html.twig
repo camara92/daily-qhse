@@ -37,6 +37,7 @@
                             <p class="bi btn btn-outline-dark   m-1"> Créé le  : {{article.createdAt | date('d/m/Y H:i')}} </p>
                             <i class="bi btn btn-outline-dark fa-comment"> <i class="">10 commentaires</i> </i> 
                             <i class="bi btn btn-outline-dark "> Catégorie : {{article.categorie }} </i>
+                            <i class="bi btn btn-outline-dark "> Article ajouté par : {{article.user.nom }} {{article.user.prenom }} </i>
                             
                         </div>
 					</div>
