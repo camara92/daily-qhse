@@ -29,7 +29,7 @@
             {# <li><a href="#hero" class="active">Acualités QHSE </a></li> #}
             <li><a href="{{path('app_ajout-article')}}"> Créer un article </a></li>
             <li><a href=" {{path('app_listes_articles')}} ">Articles </a></li>
-             <li><a href="#portfolio">Expériences </a></li>
+             {# <li><a href="#portfolio">Expériences </a></li> #}
             <li><a href="{{path('show_experience')}}">Expériences et réalisations </a></li>
             <li><a href="#team">Team Daily QHSE </a></li>
             <li class="dropdown"><a href="#"><span> MyCompte </span> <i
@@ -56,7 +56,7 @@
                 </li>
               </ul>
             </li>
-            <li class="dropdown"><a href="#"><span>Blog </span> <i
+            {# <li class="dropdown"><a href="#"><span>Blog </span> <i
                   class="bi bi-chevron-down toggle-dropdown"></i></a>
               
               <ul>
@@ -71,7 +71,19 @@
                   </ul>
                 </li>
               </ul>
-            </li>
+              <ul>
+                <li class="dropdown"><a href="#"><span>Articles</span> <i
+                      class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href=" {{path('app_question-aswer')}} ">Faire un FAQ  </a></li>
+                    <li><a href="{{path('app_ajout-article')}}">Créer un article </a></li>
+                    <li><a href="#">Mes articles </a></li>
+                    <li><a href="#">Articles récents </a></li>
+
+                  </ul>
+                </li>
+              </ul>
+            </li> #}
             <li><a href="{{path('app_question-aswer_show')}}">Voir les FAQ </a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
