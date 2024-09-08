@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Daily QHSE - ajout  {% endblock %}
+
+{% block body %}
+   
+                <div class="row animate-box">
+                    <div class="col-md-12 col-md-offset-2 text-center fh5co-heading">
+                        <h2> Mettre votre référence </h2>
+                        <hr class="text-danger ">
+                        <h3 class="text-center text-bold "> Ajouter votre référence </h3>
+                        <div class="border border-info bg-secondary container">
+                            {{ form_errors(reference) }}
+                            {{ form_start(reference) }}
+                                {{ form_row(reference.nom, {'attr': {'class': 'form form-control text-center'}}) }}
+                                {{ form_row(reference.prenom, {'attr': {'class': 'form form-control text-center'}}) }}
+                                {{ form_row(reference.mission, {'attr': {'class': 'form form-control text-center'}}) }}
+                                {{ form_row(reference.societe, {'attr': {'class': 'form form-control text-center'}}) }}
+                                {{ form_row(reference.photo, {'attr': {'class': 'form form-control text-center'}}) }}
+                              
+                                <button type="submit" class="btn form form-control btn-primary bg-success mt-5 btn-block  p-3"
+                                 style="margin-top: 15px;"> Valider </button>
+                            {{ form_end(reference) }}
+                        </div>
+                    </div>
+                </div>
+
+            
+           
+{% endblock %}

@@ -27,6 +27,9 @@ class References
     #[ORM\Column(type: Types::TEXT)]
     private ?string $mission = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $photo = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,6 +79,18 @@ class References
     public function setMission(string $mission): static
     {
         $this->mission = $mission;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): static
+    {
+        $this->photo = $photo;
 
         return $this;
     }
