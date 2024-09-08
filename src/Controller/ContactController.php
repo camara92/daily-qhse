@@ -17,7 +17,7 @@ class ContactController extends AbstractController
 {
    
 
-    #[Route('/contacter', name: 'app_contact')]
+    #[Route('/contacter', name: 'contacter')]
     public function contact(Request $request, MailerInterface $mailer, EntityManagerInterface $entityManager): Response
     {
         $contactMessage = new ContactMessage();
