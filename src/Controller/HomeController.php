@@ -25,7 +25,7 @@ class HomeController extends AbstractController
             'references'=> $referencesRepository->findAll(),
             'qa'=> $questions, 
             'sevenarticles' => $artilespremiers, 
-            'tests '=> 'Testers via datas controllers ! Daouda '
+          
         ]);
     }
 }
