@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} FAQ - Daily QHSE  {% endblock %}
+
+{% block body %}
+   
+                <div class="row animate-box">
+                    <div class="col-md-12 col-md-offset-2 text-center fh5co-heading">
+                        <h2>Merci de poser d'abord la question </h2>
+                        <hr class="text-danger ">
+                        
+                        <div class="border border-info bg-info container ">
+                            {{ form_errors(form) }}
+                            {{ form_start(form) }}
+                                {{ form_row(form.question, {'attr': {'class': 'form form-control text-center'}}) }}
+                                {{ form_row(form.reponse, {'attr': {'class': 'form form-control text-center'}}) }}
+                              
+                                <button type="submit" class="btn form form-control btn-primary bg-success mt-5 btn-block" style="margin-top: 15px;">Enregister </button>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+           
+{% endblock %}

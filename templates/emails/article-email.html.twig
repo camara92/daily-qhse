@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Message
+{% endblock %}
+
+{% block body %}
+
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+
+		<h3>Nouveau app ajouté  :</h3>
+		<ul>
+			<li>
+				<strong>Nom :</strong>
+				{{ app.user.nom }}</li>
+			<li>
+            <li>
+				<strong>Message :</strong>
+				{{ app.user.prenom }}</li>
+				<strong>Email :</strong>
+				{{ app.user.email }}</li>
+			<li>
+				<strong>Sujet :</strong>
+				Aucun sujet 
+			
+		</ul>
+
+
+	</div>
+
+{% endblock %}

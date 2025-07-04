@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Daily QHSE 
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="block-small">
+			{% for message in app.flashes("Notice") %}
+				<br>
+				<div class="alert-info mt-5">
+					{{message}}
+				</div>
+			{% endfor %}
+			<form method="post">
+				<h1 class="h3 mb-3 font-weight-normal pt-3">Réunitialiser votre mot de passe
+				</h1>
+				<label for="inputEmail">Votre email</label>
+				<input type="email" name="email" id="inputEmail" class="form-control" placeholder="votre email" autocomplete="email" required autofocus>
+				<button class="btn btn-lg bg-success btn-block my-5" type="submit">Valider
+				</button>
+				<hr>
+				<p class="text-center  my-5">Ou vous souhaiteriez
+					<a class="text-danger" href=" {{path('app_login')}} ">Se
+										connecter
+					</a>
+				</p>
+				<br/>
+			</form>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	ARTICLES - Daily QHSE
+{% endblock %}
+
+{% block body %}
+
+	
+	<div class="row animate-box">
+		<div class="col-md-12 col-md-offset-2 fh5co-heading">
+
+			<hr class="text-blue container">
+			<h2 class="text-uppercase text-center">Ajouter un ou des articles
+			</h2>
+			<hr class="text-danger container text-bold ">
+
+			<div class="border border-info bg-info container p-2">
+				{{ form_errors(form) }}
+				{{ form_start(form) }}
+				{{ form_row(form.titre, {'attr': {'class': 'form form-control text-center'}}) }}
+				{{ form_row(form.description, {'attr': {'class': 'form form-control text-center'}}) }}
+				{{ form_row(form.motCles, {'attr': {'class': 'form form-control text-center'}}) }}
+				{{ form_row(form.categorie, {'attr': {'class': 'form form-control text-center'}}) }}
+				{{ form_row(form.contenuPrincipal, {'attr': {'class': 'form form-control text-center'}}) }}
+				{{ form_row(form.resume, {'attr': {'class': 'form form-control text-center'}}) }}
+				{{ form_row(form.imagesReferences, {'attr': {'class': 'form form-control text-center'}}) }}
+				{{ form_row(form.video, {'attr': {'class': 'form form-control text-center'}}) }}
+				{{ form_row(form.creditimgvideo, {'attr': {'class': 'form form-control text-center'}}) }}
+				{# {{ form_row(form.createdAt, {'attr': {'class': 'form form-control text-center'}}) }} #}
+				{{ form_row(form.tempslecture, {'attr': {'class': 'form form-control text-center'}}) }}
+
+
+				<button type="submit" class="btn form form-control btn-primary bg-success mt-5 btn-block" style="margin-top: 15px;">Ajouter
+				</button>
+				{{ form_end(form) }}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

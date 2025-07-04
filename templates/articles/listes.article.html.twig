@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} DAILY QHSE - Listes articles {% endblock %}
+
+{% block body %}
+
+	<section id="services" class="services section">
+
+		<!-- Section Title -->
+		<div class="container section-title" data-aos="fade-up">
+			<h2>Tous les sujets  </h2>
+			<p>
+				<span>Articles </span>
+				<span class="description-title"> et Catégories   </span>
+			</p>
+		</div>
+		<!-- End Section Title -->
+
+		<div class="container">
+
+			<div class="row gy-4">
+
+				{% for article in listes_articles %}
+				<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+					<div class="service-item position-relative">
+						<div class="icon">
+							{# <i class="bi bi-activity"></i> #}
+							<img class="my-2" src="/uploads/articles_images/{{article.imagesReferences}}" alt="{{article.titre}}" width="600px" height="100px"></a>
+						</div>
+						 {# <a href="{{ path('detail_article', {'id': article.id}) }}" class="btn btn-primary btn-outline btn-lg">Découvrir </a> #}
+						<a href="{{ path('detail_article', {'id': article.id}) }} " class="stretched-link">
+
+							<h3> {{article.titre }} </h3>
+						</a> 
+						<p> {{article.description | slice(0,350) }} ...</p>
+                        <div class="">
+                            <p class="bi btn btn-outline-dark   m-1"> Créé le  : {{article.createdAt | date('d/m/Y H:i')}} </p>
+                            <i class="bi btn btn-outline-dark fa-comment"> <i class="">10 commentaires</i> </i> 
+                            <i class="bi btn btn-outline-dark "> Catégorie : {{article.categorie }} </i>
+                            <i class="bi btn btn-outline-dark "> Article ajouté par : {{article.user.nom }} {{article.user.prenom }} </i>
+                            
+                        </div>
+					</div>
+				</div>
+				{% endfor %}
+				
+				<h3 class="text-center "> Créer un <a href=" {{path('app_ajout-article')}} ">article </a> </h3>
+
+			</div>
+
+		</div>
+
+	</section>
+
+    {% endblock %}

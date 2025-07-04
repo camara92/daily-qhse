@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} FAQ - Questions-Reponses   {% endblock %}
+
+{% block body %}
+
+	<section id="faq" class="faq section light-background">
+
+		<!-- Section Title -->
+		<div class="container section-title" data-aos="fade-up">
+			<h2>F.A.Q </h2>
+			<p>
+				<span>Foire QHSE </span>
+				<span class="description-title">Questions et Réponses </span>
+			</p>
+		</div>
+		<!-- End Section Title -->
+
+		<div class="container">
+
+			<div class="row justify-content-center">
+
+				<div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+
+					<div class="faq-container">
+					{% for quesAns in qa %}
+						
+						<div class="faq-item faq-active">
+							<h3>  {{ quesAns.question }}</h3>
+							<div class="faq-content">
+								<p> {{quesAns.reponse }} </p>
+							</div>
+							<i class="faq-toggle bi bi-chevron-right"></i>
+						</div>
+					{% endfor %}
+						<!-- End Faq item-->
+
+						
+
+					</div>
+
+				</div>
+				<!-- End Faq Column-->
+
+			</div>
+
+		</div>
+
+	</section>
+
+    {% endblock %}

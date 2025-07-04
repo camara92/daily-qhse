@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Details - DAILY QHSE   {% endblock %}
+
+{% block body %}
+
+        <section id="services" class="services section">
+
+		<!-- Section Title -->
+		<div class="container section-title" data-aos="fade-up">
+			<h2>Tous les sujets  </h2>
+			<p>
+				<span>Experience </span>
+				<span class="description-title"> et Catégories   </span>
+			</p>
+		</div>
+	
+
+		<div class="container">
+
+			<div class="row gy-4">
+
+			
+				<div class="col-lg-12 col-md-12" data-aos="fade-up" data-aos-delay="100">
+					<div class="service-item position-relative">
+						<div class="icon my-3">
+						
+							<img class=" " src="/uploads/experiences/{{experience.photo}}" alt="{{experience.poste}}" width="800px" height="150px">
+						</div>
+						<br>
+						
+
+							<h3> {{experience.poste }} </h3>
+						
+						<p> {{experience.description  }} ...</p>
+                        <div class="">
+						<p> {{experience.entreprise  }} </p>
+                            <p class="bi btn btn-outline-dark   m-2"> Date  : {{experience.dateStarted | date('d/m/Y H:i')}} </p>
+                           
+                            <span class="bi btn btn-info "> Service : {{experience.service }} </span>
+                            
+                        </div>
+
+						{# daoidaa  #}
+					</div>
+						<div class="col-md-12 col-sm-6">
+							<button type="submit" class="btn btn-default btn-block"><a class="" href="{{ path('modifier_experience', {'id': experience.id}) }}">Modifier</a> </button>
+							<button type="submit" class="btn btn-alert btn-block"><a class="" href="{{ path('supprimer_experience', {'id': experience.id}) }}">Supprimer l'experience </a> </button>
+						</div>
+				</div>
+				
+				
+				<h3 class="text-center "> Créer un <a href=" {{path('add_exp')}} ">experience </a> </h3>
+
+			</div>
+
+		</div>
+
+	</section>
+
+
+{% endblock %}
